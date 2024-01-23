@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/register', [UsersController::class, 'store'])
+    ->name('user.store');
+Route::post('/register/create/{user}', [UsersController::class, 'create'])
+->name('user.create');
+
+Route::get('/login', [UsersController::class, 'store'])
+    ->name('user.login');
+Route::post('/login/create/{user}', [UsersController::class, 'create'])
+    ->name('user.create');
