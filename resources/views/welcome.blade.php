@@ -61,11 +61,11 @@
     <h1>Ласкаво просимо!</h1>
     <p>Оберіть свій статус:</p>
 
-    <a href="{{ route('user.store') }}">
+    <a href="{{ route('register') }}">
         <button id="new-user-btn">Я новенький</button>
     </a>
 
-    <a href="{{ route('user.login') }}">
+    <a href="{{ route('login') }}">
         <button id="old-user-btn">Я старенький</button>
     </a>
 </div>
