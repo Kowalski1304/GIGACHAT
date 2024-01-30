@@ -4,9 +4,11 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegisterTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * @test
      */
@@ -26,7 +28,9 @@ class RegisterTest extends TestCase
             'name' => 'Alex',
             'city' => 'Kiev',
             'age' => '18',
+            'email' => 'alex.18@cofg.com',
             'password' => 'Password!9',
+            'password_confirmation' => 'Password!9',
         ]);
 
         $this->assertAuthenticated();
@@ -42,7 +46,10 @@ class RegisterTest extends TestCase
             'name' => 'Alex',
             'city' => 'Kiev',
             'age' => '18',
+            'email' => 'alex.18@cofg.com',
             'password' => 'Pass',
+            'password_confirmation' => 'Pass',
+
         ]);
 
         $response->assertSessionHasErrors('password',

@@ -5,18 +5,12 @@ namespace Tests\Feature\Auth;
 use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
 
 class LoginTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_example(): void
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
+    use RefreshDatabase;
 
     /**
      * @test
@@ -26,7 +20,7 @@ class LoginTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post('/login', [
-            'name' => $user->name,
+            'email' => $user->email,
             'password' => 'password',
         ]);
 
@@ -42,7 +36,7 @@ class LoginTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post('/login', [
-                'name' => $user->name,
+                'email' => $user->email,
                 'password' => 'pass',
         ]);
 
@@ -56,11 +50,24 @@ class LoginTest extends TestCase
     public function test_no_user()
     {
         $response = $this->post('/login', [
-            'name' => 'Alex Lox',
+            'email' => 'alex.18@cofg.com',
             'password' => 'Password1!',
         ]);
 
-        $response->assertSessionHasErrors('name',
+        $response->assertSessionHasErrors('email',
             'Такого ніка не існує y мене в бд');
+    }
+
+    public function test_logout()
+    {
+        $user = User::factory()->create();
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->post('/logout');
+        $response->assertRedirect('/');
     }
 }
