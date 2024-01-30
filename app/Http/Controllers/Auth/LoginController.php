@@ -49,6 +49,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return view('welcome');
+        return redirect()->back();
     }
 }
