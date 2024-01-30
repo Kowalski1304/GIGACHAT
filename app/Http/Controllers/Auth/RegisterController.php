@@ -33,8 +33,7 @@ class RegisterController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        $user = User::create($this
-            ->dto
+        $user = User::create($this->dto
             ->prepareUsersData($request));
 
         event(new Registered($user));

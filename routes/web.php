@@ -24,7 +24,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest')
+    ->group(function () {
     Route::get('/register', [RegisterController::class, 'create'])
         ->name('register');
     Route::post('/register', [RegisterController::class, 'store']);
@@ -46,7 +47,8 @@ Route::middleware('guest')->group(function () {
         ->name('password.update');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')
+    ->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
 

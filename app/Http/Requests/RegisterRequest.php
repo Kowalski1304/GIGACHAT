@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'city' => ['required', 'string', 'max:255'],
             'age' => ['required', 'integer', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', 'string', 'min:8', 'max:255'],
         ];
     }
 }

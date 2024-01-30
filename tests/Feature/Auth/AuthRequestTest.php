@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Auth;
+namespace Auth;
 
 use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 
-class LoginTest extends TestCase
+class AuthRequestTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -31,7 +31,7 @@ class LoginTest extends TestCase
     /**
      * @test
      */
-    public function password_error_test()
+    public function test_password_error_character()
     {
         $user = User::factory()->create();
 
