@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Jobs\ForgotUserEmailJob;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Service\DTO\UserDTO;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
@@ -36,7 +36,7 @@ class RegisterController extends Controller
         $user = User::create($this->dto
             ->prepareUsersData($request));
 
-        event(new Registered($user));
+        ForgotUserEmailJob::dispatch($user);
 
         Auth::login($user);
 
