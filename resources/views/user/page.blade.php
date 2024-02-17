@@ -54,6 +54,7 @@
     <a href="{{ route('chat.history') }}" class="button">Історія чатів</a>
     <a href="{{ route('find.chat') }}" class="button">Знайти чат</a>
     <a href="{{ route('profile') }}" class="button">Мій профіль</a>
+    <a href="{{ route('logout') }}" class="button">Вийти з ака</a>
 </div>
 
 </body>
