@@ -24,15 +24,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('user.page');
+})->middleware('auth');
+
 Route::middleware('guest')
     ->group(function () {
     Route::get('/register', [RegisterController::class, 'create'])
         ->name('register');
-    Route::post('/register', [RegisterController::class, 'store'])->middleware('check.data');
+    Route::post('/register', [RegisterController::class, 'store'])
+      ->middleware('check.data');
 
     Route::get('/login', [LoginController::class, 'create'])
         ->name('login');
-    Route::post('/login', [LoginController::class, 'store'])->middleware('check.data');
+    Route::post('/login', [LoginController::class, 'store'])
+      ->middleware('check.data');
 
     Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])
         ->name('password.request');
