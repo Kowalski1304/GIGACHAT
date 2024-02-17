@@ -81,19 +81,19 @@
     <h2>Registration</h2>
 
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="name" required>
+    <input id="name" name="name" placeholder="name" required>
 
     <label for="city">City:</label>
-    <input type="text" id="city" name="city" placeholder="city" required>
+    <input id="city" name="city" placeholder="city" required>
 
     <label for="age">Age:</label>
-    <input type="number" id="age" name="age" placeholder="age" required>
+    <input id="age" name="age" placeholder="age" required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="email" required>
+    <input id="email" name="email" placeholder="email" required>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="password" required>
+    <input id="password" name="password" placeholder="password" required>
 
     <label for="password_confirmation">Confirm Password:</label>
     <input type="password" id="password_confirmation" name="password_confirmation" placeholder="confirm password" required>

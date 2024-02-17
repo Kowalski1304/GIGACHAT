@@ -16,7 +16,6 @@ class CheckRegistrationAndLoginData
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->is('register')) {
             $request->merge(['email' => strtolower($request->email)]);
 
             Validator::make($request->all(), [
@@ -26,16 +25,7 @@ class CheckRegistrationAndLoginData
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:mysql.users.email'],
                 'password' => ['required', 'confirmed', 'string', 'min:8', 'max:255'],
             ]);
-        }
-        if ($request->is('login')) {
-            $request->merge(['email' => strtolower($request->email)]);
 
-            Validator::make($request->all(), [
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:mysql.users.email'],
-                'password' => ['required', 'confirmed', 'string', 'min:8', 'max:255'],
-            ]);
-        }
-
-        return $next($request);
+    return $next($request);
     }
 }
