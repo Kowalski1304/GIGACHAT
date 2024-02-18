@@ -14,6 +14,7 @@ class ForgotUserEmailJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $user;
+
     /**
      * Create a new job instance.
      */
