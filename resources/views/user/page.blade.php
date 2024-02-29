@@ -51,10 +51,25 @@
 </video>
 
 <div class="buttons-container">
-    <a href="{{ route('chat.history') }}" class="button">Історія чатів</a>
-    <a href="{{ route('find.chat') }}" class="button">Знайти чат</a>
-    <a href="{{ route('profile') }}" class="button">Мій профіль</a>
-    <a href="{{ route('logout') }}" class="button">Вийти з ака</a>
+    {{-- <form action="{{ route('chat.history') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="button">Історія чатів</button>
+    </form> --}}
+
+    <form action="{{ route('find.chat') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="button">Знайти чат</button>
+    </form>
+
+    {{-- <form action="{{ route('profile') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="button">Мій профіль</button>
+    </form> --}}
+
+    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="button">Вийти з акаунту</button>
+    </form>
 </div>
 
 </body>

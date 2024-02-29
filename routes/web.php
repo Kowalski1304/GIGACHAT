@@ -1,13 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Chat\MessageController;
+use App\Http\Controllers\Chat\RoomController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +30,20 @@ Route::get('/dashboard', function () {
     return view('user.page');
 })->middleware('auth');
 
+Route::middleware('auth')
+    ->group(function () {
+
+        Route::post('/find', [RoomController::class, 'store'])
+            ->name('find.chat');
+
+        Route::get('/room/{id}', [RoomController::class, 'show'])
+            ->name('room.show');
+
+    });
+
 Route::middleware('guest')
     ->group(function () {
+
     Route::get('/register', [RegisterController::class, 'create'])
         ->name('register');
     Route::post('/register', [RegisterController::class, 'store'])
