@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Hash;
 class UserDTO
 {
 
-    public function prepareUsersData($request)
+    /**
+     * @param $request
+     * @return array
+     */
+    public function prepareUsersData($request) :array
     {
         return [
           'name'  => $request->name,

@@ -46,20 +46,4 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    /**
-     * @return HasMany
-     */
-    public function rooms() :HasMany
-    {
-        return $this->hasMany(Room::class, 'userId1')->orWhere('userId2', $this->id);
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function messages() :BelongsTo
-    {
-        return $this->belongsTo(Message::class);
-    }
 }
