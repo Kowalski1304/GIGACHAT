@@ -87,13 +87,13 @@
     <input id="city" name="city" placeholder="city" required>
 
     <label for="age">Age:</label>
-    <input id="age" name="age" placeholder="age" required>
+    <input type="number" id="age" name="age" placeholder="age" required>
 
     <label for="email">Email:</label>
     <input id="email" name="email" placeholder="email" required>
 
     <label for="password">Password:</label>
-    <input id="password" name="password" placeholder="password" required>
+    <input type="password" id="password" name="password" placeholder="password" required>
 
     <label for="password_confirmation">Confirm Password:</label>
     <input type="password" id="password_confirmation" name="password_confirmation" placeholder="confirm password" required>
