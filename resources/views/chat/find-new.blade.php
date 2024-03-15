@@ -807,7 +807,7 @@
                     fill="#FF2D20"/>
             </svg>
         </div>
-        <h1 class="mt-8 text-center">Testing Laravel Real-Time Notifications</h1>
+        <h1 class="mt-8 text-center">Зачекайте поки триває пошук.</h1>
 
         <div x-data="{ eventTriggered: false, message: '' }"
              x-show="eventTriggered"
