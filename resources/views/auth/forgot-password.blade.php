@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,37 +36,6 @@
             max-width: 400px; /* Установите максимальную ширину формы */
             margin: auto; /* Центрировать форму по горизонтали */
         }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px #ffffff;
-        }
-
-        input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #9f0000;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px #ffffff;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
 <body>
@@ -86,13 +56,13 @@
 
         <div class="mb-6">
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus class="{{ $errors->has('email') ? 'text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500 border-red-300' : 'border-gray-300 focus:border-green-500 focus:ring-green-500 placeholder:text-gray-400' }}" placeholder="john@example.com" />
+            <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="john@example.com" />
             @error('email')
             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
             @enderror
         </div>
 
-        <button type="submit">Send Reset Link</button>
+        <button type="submit" class="btn btn-primary">Send Reset Link</button>
     </form>
 </div>
 
