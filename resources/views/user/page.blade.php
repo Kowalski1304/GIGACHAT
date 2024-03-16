@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,16 +33,6 @@
             text-align: center;
         }
 
-        .button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
@@ -50,26 +42,25 @@
     Your browser does not support the video tag.
 </video>
 
-<div class="buttons-container">
-    {{-- <form action="{{ route('chat.history') }}" method="POST" style="display: inline;">
-        @csrf
-        <button type="submit" class="button">Історія чатів</button>
-    </form> --}}
+<div class="container">
+    <div class="buttons-container">
+        <div class="text-center mb-4">
+            <form action="{{ route('find.chat') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-primary mr-2">Знайти чат</button>
+            </form>
 
-    <form action="{{ route('find.chat') }}" method="POST" style="display: inline;">
-        @csrf
-        <button type="submit" class="button">Знайти чат</button>
-    </form>
+            <form action="{{ route('profile.edit') }}" method="get" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-primary mr-2">Мій профіль</button>
+            </form>
 
-    {{-- <form action="{{ route('profile') }}" method="POST" style="display: inline;">
-        @csrf
-        <button type="submit" class="button">Мій профіль</button>
-    </form> --}}
-
-    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-        @csrf
-        <button type="submit" class="button">Вийти з акаунту</button>
-    </form>
+            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-danger">Вийти з акаунту</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 </body>

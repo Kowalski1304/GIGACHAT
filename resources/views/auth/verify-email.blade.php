@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,39 +29,12 @@
         }
 
         form {
-            background-color: rgba(255, 255, 255, 0.8); /* Змінено з #RRGGBBAA на rgba() */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px #ffffff; /* Біла обводка */
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #9f0000;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px #ffffff; /* Біла обводка */
-        }
-
-        button:hover {
-            background-color: #45a049;
+            max-width: 400px; /* Установите максимальную ширину формы */
+            margin: auto; /* Центрировать форму по горизонтали */
         }
     </style>
 </head>
@@ -73,18 +47,17 @@
 
 <div class="mx-auto mt-6 w-full max-w-md rounded-xl p-6 shadow-xl sm:mt-10 sm:p-10">
     @if (session('message'))
-        <div class="flex gap-3 rounded-md border border-green-500 bg-green-50 p-4 mb-6">
-            <h3 class="text-sm font-medium text-green-800">{{ session('message') }}</h3>
+        <div class="alert alert-success" role="alert">
+            {{ session('message') }}
         </div>
     @endif
     <form action="{{ route('verification.send') }}" method="post" autocomplete="off">
         @csrf
-        <div>
-            <button type="submit" class="flex w-full items-center justify-center rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700">Verify email</button>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary btn-block">Verify email</button>
         </div>
     </form>
 </div>
-
 
 </body>
 </html>

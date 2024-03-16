@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,39 +29,12 @@
         }
 
         form {
-            background-color: rgba(255, 255, 255, 0.8); /* Змінено з #RRGGBBAA на rgba() */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px #ffffff; /* Біла обводка */
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #9f0000;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px #ffffff; /* Біла обводка */
-        }
-
-        button:hover {
-            background-color: #45a049;
+            max-width: 400px; /* Установите максимальную ширину формы */
+            margin: auto; /* Центрировать форму по горизонтали */
         }
     </style>
 </head>
@@ -71,8 +45,8 @@
     Your browser does not support the video tag.
 </video>
 
-<form method="POST" action="{{ route('register') }}">
-    <ul>
+<form method="POST" action="{{ route('register') }}" class="mx-auto mt-6 w-full max-w-md rounded-xl p-6 shadow-xl sm:mt-10 sm:p-10">
+    <ul class="text-danger">
         @foreach($errors->all() as $message)
             <li>{{ $message }}</li>
         @endforeach
@@ -80,25 +54,37 @@
     @csrf
     <h2>Registration</h2>
 
-    <label for="name">Name:</label>
-    <input id="name" name="name" placeholder="name" required>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input id="name" name="name" class="form-control" placeholder="name" required>
+    </div>
 
-    <label for="city">City:</label>
-    <input id="city" name="city" placeholder="city" required>
+    <div class="mb-3">
+        <label for="city" class="form-label">City:</label>
+        <input id="city" name="city" class="form-control" placeholder="city" required>
+    </div>
 
-    <label for="age">Age:</label>
-    <input type="number" id="age" name="age" placeholder="age" required>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number" id="age" name="age" class="form-control" placeholder="age" required>
+    </div>
 
-    <label for="email">Email:</label>
-    <input id="email" name="email" placeholder="email" required>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input id="email" name="email" class="form-control" placeholder="email" required>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="password" required>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
+    </div>
 
-    <label for="password_confirmation">Confirm Password:</label>
-    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="confirm password" required>
+    <div class="mb-3">
+        <label for="password_confirmation" class="form-label">Confirm Password:</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="confirm password" required>
+    </div>
 
-    <button type="submit">Register</button>
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
 
 </body>
