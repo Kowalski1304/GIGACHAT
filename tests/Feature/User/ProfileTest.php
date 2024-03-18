@@ -39,6 +39,7 @@ class ProfileTest extends TestCase
         $request->setUserResolver(function () use ($user) {
             return $user;
         });
+
         Auth::shouldReceive('logout')->once();
         Redirect::shouldReceive('to')->once()->with('/')->andReturn(new RedirectResponse('/'));
 
